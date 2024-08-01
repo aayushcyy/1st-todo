@@ -49,14 +49,14 @@ body {
   justify-content: space-between;
   width: 70%;
   height: 15vh;
-  font-size: 1.7vw;
+  font-size: 1.7vh;
   z-index: 9;
   background-color: #171717;
 }
 
 #nav p {
   color: var(--second-color);
-  font-size: 1.7vw;
+  font-size: 1.7vh;
   font-weight: 600;
 }
 
