@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <div id="nav">
+        <p id="logo">Tasks</p>
+        <i id="theme-btn" class="ri-color-filter-line"></i>
+      </div>
+      <div id="main">
+        <!-- <div class="task">
+          <div class="task-p1">
+            <input type="checkbox" class="task-check" />
+            <p>${inputText}</p>
+          </div>
+          <button id="delete-btn">
+            <i class="ri-delete-bin-6-line"></i>
+          </button>
+        </div> -->
+      </div>
+      <div id="parent-add-task">
+        <div id="blur-overlay"></div>
+        <div id="add-task">
+          <div id="add-task-p1">
+            <i id="plus-icon" class="ri-add-large-line"></i>
+            <input
+              type="tel"
+              placeholder="Add a task"
+              name="Add a task"
+              id="new-task"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
