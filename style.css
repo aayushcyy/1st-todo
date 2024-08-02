@@ -68,8 +68,8 @@ body {
 #main {
   display: flex;
   flex-direction: column;
-  padding: 15vh 0 77.5vh 0;
-  min-height: 120vh;
+  padding: 15vh 0 20.5vh 0;
+  min-height: 100vh;
   width: 100%;
 }
 
