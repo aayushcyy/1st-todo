@@ -1,28 +1,50 @@
 // Accessing Value from the Input
-function taskAdder() {
-  let taskInput = document.querySelector("#new-task");
 
+const todos = [];
+
+function populateExistingTasks() {
+  const localTodos = localStorage.getItem("todos");
+  if (!localTodos) {
+    return;
+  }
+
+  const parsedTodos = JSON.parse(localTodos);
+
+  if (!Array.isArray(parsedTodos)) {
+    return;
+  }
+
+  parsedTodos.forEach(addNewTodo);
+}
+
+function addNewTodo(text) {
+  if (!text) {
+    return;
+  }
+  let taskDiv = document.createElement("div");
+  taskDiv.classList.add("tastDiv");
+
+  taskDiv.innerHTML = `<div class="task">
+    <div class="task-p1">
+      <input type="checkbox" class="task-check" />
+      <p>${text}</p>
+    </div>
+    <button id="delete-btn">
+      <i class="ri-delete-bin-6-line"></i>
+    </button>
+  </div>
+`;
+  todos.push(text);
+  localStorage.setItem("todos", JSON.stringify(todos));
+  document.querySelector("#main").appendChild(taskDiv);
+  document.querySelector("#new-task").value = "";
+}
+
+function taskAdder() {
+  const taskInput = document.querySelector("#new-task")
   taskInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      let taskText = taskInput.value;
-      if (taskText) {
-        let taskDiv = document.createElement("div");
-        taskDiv.classList.add("tastDiv");
-
-        taskDiv.innerHTML = `
-      <div class="task">
-          <div class="task-p1">
-            <input type="checkbox" class="task-check" />
-            <p>${taskText}</p>
-          </div>
-          <button id="delete-btn">
-            <i class="ri-delete-bin-6-line"></i>
-          </button>
-        </div>
-      `;
-        document.querySelector("#main").appendChild(taskDiv);
-        taskInput.value = ""; // Reseting the input field
-      }
+      addNewTodo(taskInput.value);
     }
   });
 }
@@ -35,6 +57,7 @@ function taskDeleter() {
     }
   });
 }
+populateExistingTasks();
 taskAdder();
 taskDeleter();
 
@@ -51,40 +74,28 @@ themeBtn.addEventListener("click", function () {
     logoText.style.color = "#788cde";
     inputIcon.style.color = "#788cde";
     inpuText.style.color = "#788cde";
-    document.documentElement.style.setProperty(
-      "--placeholder-color",
-      "#788cde"
-    );
+    document.documentElement.style.setProperty("--placeholder-color", "#788cde");
     btnState++;
   } else if (btnState === 1) {
     themeBtn.style.color = "#ecbda2";
     logoText.style.color = "#ecbda2";
     inputIcon.style.color = "#ecbda2";
     inpuText.style.color = "#ecbda2";
-    document.documentElement.style.setProperty(
-      "--placeholder-color",
-      "#ecbda2"
-    );
+    document.documentElement.style.setProperty("--placeholder-color", "#ecbda2");
     btnState++;
   } else if (btnState === 2) {
     themeBtn.style.color = "#e46c8c";
     logoText.style.color = "#e46c8c";
     inputIcon.style.color = "#e46c8c";
     inpuText.style.color = "#e46c8c";
-    document.documentElement.style.setProperty(
-      "--placeholder-color",
-      "#e46c8c"
-    );
+    document.documentElement.style.setProperty("--placeholder-color", "#e46c8c");
     btnState++;
   } else if (btnState === 3) {
     themeBtn.style.color = "#479e98";
     logoText.style.color = "#479e98";
     inputIcon.style.color = "#479e98";
     inpuText.style.color = "#479e98";
-    document.documentElement.style.setProperty(
-      "--placeholder-color",
-      "#479e98"
-    );
+    document.documentElement.style.setProperty("--placeholder-color", "#479e98");
     btnState = 0;
   }
 });
